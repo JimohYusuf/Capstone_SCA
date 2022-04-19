@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Tue Apr 19 00:23:45 2022
+# Process ID: 21204
+# Current directory: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/impl_1
+# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/impl_1/top.vdi
+# Journal file: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/impl_1\vivado.jou
+# Running On: HafisPC, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 8346 MB
+#-----------------------------------------------------------
+source top.tcl -notrace

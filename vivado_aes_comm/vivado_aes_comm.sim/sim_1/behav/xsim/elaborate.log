@@ -1,0 +1,50 @@
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v" Line 3. Module comm doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v" Line 1. Module sample_ticker doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v" Line 1. Module UART_rx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v" Line 1. Module rx_shift doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v" Line 1. Module fifo doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v" Line 1. Module control_block doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v" Line 1. Module fifo doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v" Line 1. Module UART_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v" Line 42. Module aes_core doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v" Line 43. Module aes_encipher_block doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v" Line 41. Module aes_key_mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v" Line 42. Module aes_sbox doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v" Line 3. Module comm doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v" Line 1. Module sample_ticker doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v" Line 1. Module UART_rx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v" Line 1. Module rx_shift doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v" Line 1. Module fifo doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v" Line 1. Module control_block doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v" Line 1. Module fifo doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v" Line 1. Module UART_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v" Line 42. Module aes_core doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v" Line 43. Module aes_encipher_block doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v" Line 41. Module aes_key_mem doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v" Line 42. Module aes_sbox doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.sample_ticker
+Compiling module xil_defaultlib.UART_rx
+Compiling module xil_defaultlib.rx_shift
+Compiling module xil_defaultlib.fifo
+Compiling module xil_defaultlib.control_block
+Compiling module xil_defaultlib.tx_shift
+Compiling module xil_defaultlib.UART_tx
+Compiling module xil_defaultlib.comm
+Compiling module xil_defaultlib.aes_encipher_block
+Compiling module xil_defaultlib.aes_key_mem
+Compiling module xil_defaultlib.aes_sbox
+Compiling module xil_defaultlib.aes_core
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav

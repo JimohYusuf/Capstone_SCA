@@ -1,0 +1,40 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_encipher_block
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_key_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_sbox
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module comm
+INFO: [VRFC 10-2458] undeclared symbol s_tick, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:22]
+INFO: [VRFC 10-2458] undeclared symbol rx_done, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:33]
+INFO: [VRFC 10-2458] undeclared symbol rx_write_en, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:44]
+INFO: [VRFC 10-2458] undeclared symbol rx_read_en, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:54]
+INFO: [VRFC 10-2458] undeclared symbol rx_empty, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:56]
+INFO: [VRFC 10-2458] undeclared symbol rx_overflow, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:57]
+INFO: [VRFC 10-2458] undeclared symbol tx_overflow, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:68]
+INFO: [VRFC 10-2458] undeclared symbol tx_write_en, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:69]
+INFO: [VRFC 10-2458] undeclared symbol tx_read_en, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:84]
+INFO: [VRFC 10-2458] undeclared symbol tx_empty, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:86]
+INFO: [VRFC 10-2458] undeclared symbol tx_done, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:96]
+INFO: [VRFC 10-2458] undeclared symbol tx_start, assumed default net type wire [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:100]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_block
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rx_shift
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sample_ticker
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/tx_shift.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tx_shift
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/tbs/tb_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top
