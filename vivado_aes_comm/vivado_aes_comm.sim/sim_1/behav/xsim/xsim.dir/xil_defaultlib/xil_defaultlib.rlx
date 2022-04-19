@@ -1,0 +1,19 @@
+0.7
+2020.2
+Oct 19 2021
+03:16:22
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v,1650342210,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v,,aes_core,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v,1650340827,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v,,aes_encipher_block,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v,1650292484,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v,,aes_key_mem,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v,1650287945,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v,,aes_sbox,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v,1646552129,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/tx_shift.v,,top,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v,,UART_rx,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v,,UART_tx,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v,1650280246,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v,,comm,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v,,control_block,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v,,fifo,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v,,rx_shift,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v,,sample_ticker,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/tx_shift.v,1650279269,verilog,,C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/tbs/tb_top.v,,tx_shift,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/tbs/tb_top.v,1650281595,verilog,,,,tb_top,,,,,,,,
+C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.sim/sim_1/behav/xsim/glbl.v,1634335545,verilog,,,,glbl,,,,,,,,

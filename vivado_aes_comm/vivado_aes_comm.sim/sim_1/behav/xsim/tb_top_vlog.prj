@@ -1,0 +1,22 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../src/com_src/UART_receiver.v" \
+"../../../../../src/com_src/UART_transmitter.v" \
+"../../../../../src/aes_src/aes_core_128.v" \
+"../../../../../src/aes_src/aes_encipher_block_128.v" \
+"../../../../../src/aes_src/aes_key_mem_128.v" \
+"../../../../../src/aes_src/aes_sbox_128.v" \
+"../../../../../src/com_src/communication_module.v" \
+"../../../../../src/com_src/control_block.v" \
+"../../../../../src/com_src/fifo_buffer.v" \
+"../../../../../src/com_src/rx_shift.v" \
+"../../../../../src/com_src/sampleTick_generator.v" \
+"../../../../../src/aes_src/top.v" \
+"../../../../../src/com_src/tx_shift.v" \
+"../../../../../src/tbs/tb_top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

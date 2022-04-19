@@ -1,0 +1,499 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Tue Apr 19 00:14:56 2022
+# Process ID: 18244
+# Current directory: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/synth_1/top.vds
+# Journal file: C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/synth_1\vivado.jou
+# Running On: HafisPC, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 8346 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7a100tlcsg324-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100tl'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100tl'
+INFO: [Device 21-403] Loading part xc7a100tlcsg324-2L
+WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17720
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1240.086 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v:65]
+INFO: [Synth 8-6157] synthesizing module 'comm' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sample_ticker' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sample_ticker' (1#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/sampleTick_generator.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_rx' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'UART_rx' (2#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_receiver.v:1]
+INFO: [Synth 8-6157] synthesizing module 'rx_shift' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'rx_shift' (3#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/rx_shift.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fifo' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fifo' (4#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/fifo_buffer.v:1]
+INFO: [Synth 8-6157] synthesizing module 'control_block' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'control_block' (5#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/control_block.v:1]
+INFO: [Synth 8-6157] synthesizing module 'tx_shift' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/tx_shift.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'tx_shift' (6#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/tx_shift.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_tx' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'UART_tx' (7#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/UART_transmitter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'comm' (8#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/com_src/communication_module.v:3]
+INFO: [Synth 8-6157] synthesizing module 'aes_core' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v:42]
+INFO: [Synth 8-6157] synthesizing module 'aes_encipher_block' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v:43]
+INFO: [Synth 8-226] default block is never used [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v:334]
+INFO: [Synth 8-6155] done synthesizing module 'aes_encipher_block' (9#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_encipher_block_128.v:43]
+INFO: [Synth 8-6157] synthesizing module 'aes_key_mem' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v:41]
+INFO: [Synth 8-226] default block is never used [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v:236]
+INFO: [Synth 8-6155] done synthesizing module 'aes_key_mem' (10#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_key_mem_128.v:41]
+INFO: [Synth 8-6157] synthesizing module 'aes_sbox' [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v:42]
+INFO: [Synth 8-6155] done synthesizing module 'aes_sbox' (11#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_sbox_128.v:42]
+INFO: [Synth 8-6155] done synthesizing module 'aes_core' (12#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/aes_core_128.v:42]
+INFO: [Synth 8-6155] done synthesizing module 'top' (13#1) [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/aes_src/top.v:23]
+WARNING: [Synth 8-7129] Port new_sboxw[127] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[126] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[125] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[124] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[123] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[122] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[121] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[120] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[119] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[118] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[117] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[116] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[115] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[114] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[113] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[112] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[111] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[110] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[109] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[108] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[107] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[106] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[105] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[104] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[103] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[102] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[101] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[100] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[99] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[98] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[97] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[96] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[95] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[94] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[93] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[92] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[91] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[90] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[89] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[88] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[87] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[86] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[85] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[84] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[83] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[82] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[81] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[80] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[79] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[78] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[77] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[76] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[75] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[74] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[73] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[72] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[71] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[70] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[69] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[68] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[67] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[66] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[65] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[64] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[63] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[62] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[61] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[60] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[59] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[58] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[57] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[56] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[55] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[54] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[53] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[52] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[51] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[50] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[49] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[48] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[47] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[46] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[45] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[44] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[43] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[42] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[41] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[40] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[39] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[38] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[37] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[36] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[35] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[34] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[33] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[32] in module aes_key_mem is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1240.086 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1240.086 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1240.086 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 1240.086 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/constraints/Nexys-4-DDR-Master.xdc]
+Finished Parsing XDC File [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/constraints/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/yoj20/Documents/Yusuf/Capstone_21/src/constraints/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1254.051 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1254.051 ; gain = 0.000
+WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tlcsg324-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'UART_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fifo'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'UART_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'enc_ctrl_reg_reg' in module 'aes_encipher_block'
+INFO: [Synth 8-802] inferred FSM for state register 'key_mem_ctrl_reg_reg' in module 'aes_key_mem'
+INFO: [Synth 8-802] inferred FSM for state register 'aes_core_ctrl_reg_reg' in module 'aes_core'
+INFO: [Synth 8-802] inferred FSM for state register 'key_gen_state_reg' in module 'top'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                               00 |                               00
+*
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                  iSTATE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'UART_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+*
+                 iSTATE0 |                               01 |                               01
+                  iSTATE |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fifo'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                               00 |                               00
+*
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                  iSTATE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'UART_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                               00
+               CTRL_INIT |                               01 |                               01
+               CTRL_SBOX |                               10 |                               10
+               CTRL_MAIN |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'enc_ctrl_reg_reg' using encoding 'sequential' in module 'aes_encipher_block'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                             0001 |                              000
+               CTRL_INIT |                             0010 |                              001
+           CTRL_GENERATE |                             0100 |                              010
+               CTRL_DONE |                             1000 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'key_mem_ctrl_reg_reg' using encoding 'one-hot' in module 'aes_key_mem'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               CTRL_IDLE |                               00 |                               00
+               CTRL_INIT |                               01 |                               01
+               CTRL_NEXT |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'aes_core_ctrl_reg_reg' using encoding 'sequential' in module 'aes_core'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+            INIT_KEY_GEN |                              001 |                               00
+          GENERATING_KEY |                              010 |                               01
+            KEY_GEN_DONE |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'key_gen_state_reg' using encoding 'one-hot' in module 'top'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 6     
+	   2 Input    3 Bit       Adders := 6     
++---XORs : 
+	   2 Input    128 Bit         XORs := 3     
+	   2 Input     32 Bit         XORs := 14    
+	   3 Input     32 Bit         XORs := 2     
+	   4 Input     32 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 23    
+	   4 Input      8 Bit         XORs := 12    
+	   5 Input      8 Bit         XORs := 4     
++---Registers : 
+	              256 Bit    Registers := 1     
+	              128 Bit    Registers := 43    
+	                8 Bit    Registers := 7     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 10    
+	                3 Bit    Registers := 12    
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 35    
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 19    
+	   5 Input  128 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 4     
+	   2 Input    8 Bit        Muxes := 3     
+	   3 Input    8 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 19    
+	   4 Input    4 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 9     
+	   4 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 19    
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 178   
+	   3 Input    1 Bit        Muxes := 45    
+	   4 Input    1 Bit        Muxes := 17    
+	   5 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port new_sboxw[127] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[126] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[125] in module aes_key_mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port new_sboxw[124] in module aes_key_mem is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
+|aes_sbox    | sbox       | 256x8         | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1254.051 ; gain = 13.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1267.473 ; gain = 27.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |BUFG  |     1|
+|2     |LUT1  |     1|
+|3     |LUT2  |   296|
+|4     |LUT3  |   291|
+|5     |LUT4  |   283|
+|6     |LUT5  |   309|
+|7     |LUT6  |  2068|
+|8     |MUXF7 |   256|
+|9     |FDCE  |  2207|
+|10    |FDPE  |     3|
+|11    |FDRE  |  3383|
+|12    |FDSE  |     2|
+|13    |IBUF  |     3|
+|14    |OBUF  |     1|
++------+------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1281.375 ; gain = 41.289
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:46 . Memory (MB): peak = 1281.375 ; gain = 27.324
+Synthesis Optimization Complete : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1281.375 ; gain = 41.289
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.085 . Memory (MB): peak = 1293.441 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 256 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1297.113 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: eef0a9ec
+INFO: [Common 17-83] Releasing license: Synthesis
+63 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1297.113 ; gain = 57.027
+INFO: [Common 17-1381] The checkpoint 'C:/Users/yoj20/Documents/Yusuf/Capstone_21/vivado_aes_comm/vivado_aes_comm.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 19 00:15:57 2022...
