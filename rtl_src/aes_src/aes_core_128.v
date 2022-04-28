@@ -53,7 +53,7 @@ module aes_core(
                 input wire  [127 : 0] block,
                 output wire [127 : 0] result,
                 output wire           result_valid,
-                output wire           aes_ready
+                output wire           last_round
                );
 
 
@@ -128,7 +128,8 @@ module aes_core(
 
                                .block(block),
                                .new_block(enc_new_block),
-                               .ready(enc_ready)
+                               .ready(enc_ready),
+                               .last_round(last_round)
                               );
 
 
@@ -158,7 +159,6 @@ module aes_core(
   assign ready        = ready_reg;
   assign result       = muxed_new_block;
   assign result_valid = result_valid_reg;
-  assign aes_ready    = enc_ready;
 
 
   //----------------------------------------------------------------
@@ -311,3 +311,4 @@ endmodule // aes_core
 //======================================================================
 // EOF aes_core.v
 //======================================================================
+

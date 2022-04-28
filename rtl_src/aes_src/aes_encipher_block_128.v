@@ -55,7 +55,8 @@ module aes_encipher_block(
 
                           input wire  [127 : 0]  block,
                           output wire [127 : 0] new_block,
-                          output wire           ready
+                          output wire           ready,
+                          output wire           last_round
                          );
 
 
@@ -177,6 +178,8 @@ module aes_encipher_block(
   reg [1 : 0]   enc_ctrl_new;
   reg           enc_ctrl_we;
 
+  reg           last_round_reg;
+  reg           last_round_we;
 
   //----------------------------------------------------------------
   // Wires.
@@ -188,10 +191,11 @@ module aes_encipher_block(
   //----------------------------------------------------------------
   // Concurrent connectivity for ports etc.
   //----------------------------------------------------------------
-  assign round     = round_ctr_reg;
-  assign sboxw     = muxed_sboxw;
-  assign new_block = block_reg;
-  assign ready     = ready_reg;
+  assign round       = round_ctr_reg;
+  assign sboxw       = muxed_sboxw;
+  assign new_block   = block_reg;
+  assign ready       = ready_reg;
+  assign last_round  = last_round_reg;
 
 
   //----------------------------------------------------------------
@@ -205,10 +209,11 @@ module aes_encipher_block(
     begin: reg_update
       if (!reset_n)
         begin
-          block_reg     <= 128'h0;
-          round_ctr_reg <= 4'h0;
-          ready_reg     <= 1'b1;
-          enc_ctrl_reg  <= CTRL_IDLE;
+          block_reg      <= 128'h0;
+          round_ctr_reg  <= 4'h0;
+          ready_reg      <= 1'b1;
+          //last_round_reg <= 1'b0;
+          enc_ctrl_reg   <= CTRL_IDLE;
         end
       else
         begin
@@ -223,6 +228,11 @@ module aes_encipher_block(
 
           if (enc_ctrl_we)
             enc_ctrl_reg <= enc_ctrl_new;
+           
+//          if (last_round_we)
+//            last_round_reg <= 1'b1;
+//          else
+//            last_round_reg <= 1'b0;
         end
     end // reg_update
 
@@ -238,10 +248,10 @@ module aes_encipher_block(
       reg [127 : 0] addkey_init_block, addkey_main_block, addkey_final_block;
 
       block_new   = 128'h0;
-      muxed_sboxw = 128'h0;
+      muxed_sboxw = block_reg;
       block_we    = 1'b0;
 
-      old_block          = block_reg;
+      old_block          = new_sboxw;
       shiftrows_block    = shiftrows(old_block);
       mixcolumns_block   = mixcolumns(shiftrows_block);
       addkey_init_block  = addroundkey(block, round_key);
@@ -253,13 +263,6 @@ module aes_encipher_block(
           begin
             block_new = addkey_init_block;
             block_we  = 1'b1;
-          end
-
-        SBOX_UPDATE:
-          begin
-            block_new    = new_sboxw;
-            muxed_sboxw  = block_reg;
-            block_we     = 1'b1;
           end
 
         MAIN_UPDATE:
@@ -321,6 +324,7 @@ module aes_encipher_block(
       update_type   = NO_UPDATE;
       enc_ctrl_new  = CTRL_IDLE;
       enc_ctrl_we   = 1'b0;
+      last_round_reg = 1'b0;
 
       if (keylen == AES_256_BIT_KEY)
         begin
@@ -348,13 +352,6 @@ module aes_encipher_block(
           begin
             round_ctr_inc = 1'b1;
             update_type   = INIT_UPDATE;
-            enc_ctrl_new  = CTRL_SBOX;
-            enc_ctrl_we   = 1'b1;
-          end
-
-        CTRL_SBOX:
-          begin
-            update_type   = SBOX_UPDATE;
             enc_ctrl_new  = CTRL_MAIN;
             enc_ctrl_we   = 1'b1;
           end
@@ -365,16 +362,18 @@ module aes_encipher_block(
             if (round_ctr_reg < num_rounds)
               begin
                 update_type   = MAIN_UPDATE;
-                enc_ctrl_new  = CTRL_SBOX;
+                enc_ctrl_new  = CTRL_MAIN;
                 enc_ctrl_we   = 1'b1;
               end
             else
               begin
+                last_round_reg = 1'b1;
                 update_type  = FINAL_UPDATE;
                 ready_new    = 1'b1;
                 ready_we     = 1'b1;
                 enc_ctrl_new = CTRL_IDLE;
                 enc_ctrl_we  = 1'b1;
+                
               end
           end
 
@@ -390,3 +389,4 @@ endmodule // aes_encipher_block
 //======================================================================
 // EOF aes_encipher_block.v
 //======================================================================
+
