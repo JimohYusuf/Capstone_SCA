@@ -1,9 +1,21 @@
+import os
+from click import style
+from matplotlib.pyplot import text
 import numpy as np
-import matplotlib.pyplot as plt
 from numba import jit, prange 
-from tqdm import tqdm
-import xlsxwriter
+from rich.console import Console, Group
+from rich.table import Table
+from rich.live import Live
+from rich.table import Table
+from rich.align import Align
+from rich.layout import Layout
+from rich.panel import Panel
+from rich.text import Text
+from rich import box
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 
+from time import sleep
+from datetime import datetime
 
 
 
@@ -317,7 +329,7 @@ def run_cpa_attack(power_leakage_points, cipher_texts, CT_2_PREVCT_MAPPING, INVE
 
         for kguess in range(0, NO_KEYS):
             hws = np.zeros((1, NO_DATA)).flatten()
-            corr_coeffs = np.zeros((1, NO_POINT_PER_TRACE)).flatten()  
+            #corr_coeffs = np.zeros((1, NO_POINT_PER_TRACE)).flatten()  
             
             for trc_row in range(NO_DATA):
                 op1 = INVERSE_LOOKUP_TABLE[kguess, cipher_texts[trc_row, byte_num]]
@@ -348,20 +360,152 @@ def run_cpa_attack(power_leakage_points, cipher_texts, CT_2_PREVCT_MAPPING, INVE
 
 
 
-### Setup Paramters ###
+##########################################################################################################
+############################################## R I C H ###################################################
+##########################################################################################################
+NO_PRINT_ROW = 20
+
+border_color = "bright_blue"
+header_style="bright_white on black"
+text_color = "bright_white"
+def generate_table(top_10_byte, actual_key, key_recovery_rate, no_traces) -> Table:
+    """Make a new table."""
+
+    table = Table(show_header=True, header_style="bold white", border_style=border_color) 
+
+    top_10_byte = top_10_byte.astype(int) 
+    table_header = ["Byte"+str(k) for k in range(16)]
+    for header in table_header:
+        table.add_column(header, width=7)
+
+    for i in range(NO_PRINT_ROW):
+        temp = []
+        for j in range(16):
+            if (top_10_byte[i,:][j] == actual_key[j]):
+                temp.append("[bright_red]"+str(hex(top_10_byte[i,:][j]))+"[/bright_red]") 
+            else:
+                temp.append(str(hex(top_10_byte[i,:][j]))) 
+        
+        table.add_row(*temp) 
+    
+    table.title = ( f"KEY RECOVERY RATE: {key_recovery_rate} %") 
+    table.caption = (f"NO OF TRACES : {no_traces}")
+    return table
+
+
+
+def make_layout() -> Layout:
+    """Define the layout."""
+    layout = Layout(name="root")
+
+    layout.split(
+        Layout(name="header", size=3),
+        Layout(name="main", ratio=1),
+        Layout(name="footer", size=7),
+    )
+    layout["main"].split_row(
+        Layout(name="side"),
+        Layout(name="body", ratio=2, minimum_size=60),
+    )
+    layout["side"].split(Layout(name="box1"), Layout(name="box2"))
+    return layout
+
+
+def make_table(indx) -> Panel:
+    """Some example content."""
+    sponsor_message = Table.grid(padding=1)
+    sponsor_message.add_column(style=text_color, justify="right")
+    sponsor_message.add_column(no_wrap=True)
+    sponsor_message.add_row(
+        "Check out our GitHub page",
+        "[u white link=https://github.com/JimohYusuf/capstone_sca]https://github.com/JimohYusuf/capstone_sca",
+    )
+
+    intro_message = Text.from_markup(
+        """[b white]Let us know what you think about this CPA tool"""
+    ) 
+
+    message = Table.grid(padding=1)
+    message.add_column()
+    message.add_column(no_wrap=True)
+    message.add_row(generate_table(all_top_10_bytes[indx], actual_r10_key_int, success_per_no_data[indx], NO_DATA_ARR[indx]))
+    message.add_row(intro_message, style=text_color)
+    message.add_row(sponsor_message, style=text_color)
+
+    message_panel = Panel(
+        message,
+        box=box.ROUNDED,
+        padding=(1, 1),
+        title="[b white]Thanks for trying out this CPA tool!",
+        border_style=border_color,
+    )
+    return message_panel
+
+
+def make_authors() -> Panel:
+    """Some example content."""
+    authors = Table.grid(padding=1)
+    authors.add_column(style=text_color, justify="left", width=20)
+    authors.add_column(no_wrap=True)
+    authors.add_row(
+        "1. Jimoh, Yusuf"
+    )
+    authors.add_row(
+        "2. Berdica, Uljad"
+    )
+    authors.add_row(
+        "3. Salous, Ahmad"
+    )
+
+    message = Table.grid(padding=1)
+    message.add_column()
+    message.add_column(no_wrap=True)
+    message.add_row(authors)
+
+    author_panel = Panel(
+        message,
+        box=box.ROUNDED,
+        padding=(1, 2),
+        title="[b white]Authors",
+        border_style=border_color,
+    )
+    return author_panel
+
+
+def make_key_recovery(indx) -> Panel:
+    return Panel(Text("Recovered Key:" + all_recoverd_r10_keys[indx], style=text_color), border_style=border_color,padding=(3, 5),title="[b]Recovered Key", style=text_color) 
+
+class Header:
+    """Display header with clock."""
+
+    def __rich__(self) -> Panel:
+        grid = Table.grid(expand=True)
+        grid.add_column(justify="center", ratio=1)
+        grid.add_column(justify="right")
+        grid.add_row(
+            "[b]CPA Attack on AES[/b]",
+            datetime.now().ctime().replace(":", "[blink]:[/]"),
+        )
+        return Panel(grid, style=header_style, border_style=border_color) 
+
+##########################################################################################################
+############################################## R I C H ###################################################
+##########################################################################################################
+
+###### Setup Paramters #######
 NO_TRACES    = 1000
-step_size    = 200
+STEP_SIZE    = 20
 NO_TEST_KEYS = 1
-end          = int((NO_TRACES/step_size)) + 1
-NO_DATA_ARR  = [10] + [(step_size*k) for k in range(1,end)]
+NO_DATA_ARR  = [10] + [(STEP_SIZE*k) for k in range(1, int((NO_TRACES/STEP_SIZE)) + 1 )]
 data_source  = DataSource.own_sim
+NO_POINT_PER_TRACE  = 1
+success_per_no_data = np.zeros((1,len(NO_DATA_ARR))).flatten()
+
 
 ###################### Attack on sim data for extracting success rates (bitwise and bytewise) ####################
-success_per_no_data         = np.zeros((1,len(NO_DATA_ARR))).flatten()
-success_per_no_data_2       = np.zeros((1,len(NO_DATA_ARR))).flatten()
 
 if (data_source == DataSource.own_sim):
-    all_power_trace  = get_power_from_raw_simulation("../data/simulation/aes_own/power_1000_1.out", 0, NO_TRACES*NO_TEST_KEYS, NO_TRACES,DataSource.own_sim.value)
+    all_power_trace  = get_power_from_raw_simulation("../data/simulation/aes_own/power_1000_1.out", 0, NO_TRACES*NO_TEST_KEYS, NO_TRACES,DataSource.own_sim.value) 
     all_cipher_texts = get_ct("../data/simulation/aes_own/ct.txt", 0, NO_TRACES*NO_TEST_KEYS, NO_TRACES) 
 elif (data_source == DataSource.lab_sim):
     all_power_trace  = get_power_from_raw_simulation("../data/simulation/aes_lab/power_5000_3.out", 0, 3, DataSource.lab_sim.value) 
@@ -374,84 +518,113 @@ else:
     exit
 
 all_keys = get_keys("../data/simulation/aes_own/key.txt")
+######################################################################################################################
 
+#############################
 cnt = 0
-
+all_top_10_bytes   = []
+actual_r10_key_int = None
+all_recoverd_r10_keys = []
+##############################
 
 for NO_DATA in NO_DATA_ARR:
-    recovery_rate   = 0
-    recovery_rate_2 = 0
+    top_10_per_byte = np.zeros((NO_PRINT_ROW,16))
 
-    for DATA_IDX in range(NO_TEST_KEYS):
-        # Load Power and CipherText
-        begin        = DATA_IDX*NO_TRACES
-        end          = begin + NO_DATA
-        power_trace  = all_power_trace[begin:end]
-        cipher_texts = all_cipher_texts[begin:end]
+    # Load Power and CipherText and Key
+    cipher_texts         = all_cipher_texts[0:NO_DATA]
+    actual_key_int       = all_keys[0] 
+    power_leakage_points = all_power_trace[0:NO_DATA]
 
+    # Get Round 10 Key
+    actual_key_str = ""
+    for byte_no in range(0,16):
+        actual_key_str  = actual_key_str + int_2_hex_string(actual_key_int[byte_no])
 
-        # Get Actual Key (for comparing later)
-        actual_key_int  = all_keys[DATA_IDX]
+    actual_r10_key      = key_schedule( unhex([actual_key_str])[0] )
+    actual_r10_key      = hexlify( actual_r10_key[10] )
+    actual_r10_key      = str(actual_r10_key, 'ascii').upper()
+    actual_r10_key_int  = [actual_r10_key[i:i+2] for i in range(0, len(actual_r10_key), 2)]
+    actual_r10_key_int  = [int(k,16) for k in actual_r10_key_int]
 
+    # Get Statistics (Mean and Standard Deviation) of Power Traces
+    mean_power_trace = mean(power_leakage_points)
+    sdev_power_trace = sdev(power_leakage_points, mean_power_trace)
 
-        # Get Round 10 Key
-        actual_key_str = ""
-        for byte_no in range(0,16):
-            actual_key_str  = actual_key_str + int_2_hex_string(actual_key_int[byte_no])
-        actual_r10_key      = key_schedule( unhex([actual_key_str])[0] )
-        actual_r10_key      = hexlify( actual_r10_key[10])
-        actual_r10_key      = str(actual_r10_key, 'ascii').upper()
-        actual_r10_key_int  = [actual_r10_key[i:i+2] for i in range(0, len(actual_r10_key), 2)]
-        actual_r10_key_int  = [int(k,16) for k in actual_r10_key_int]
+    # Call Attack Function
+    corr_coeffs_4all_bytes  = run_cpa_attack(power_leakage_points, cipher_texts, CT_2_PREVCT_MAPPING, INVERSE_LOOKUP_TABLE, NO_DATA, NO_KEYS) 
 
-
-        # Select Power Leakage Point
-        if (data_source == DataSource.real):
-            NO_POINT_PER_TRACE      = power_trace[0].size
-            round_size              = NO_POINT_PER_TRACE // 5
-            trace_start             = NO_POINT_PER_TRACE - round_size
-            power_leakage_points    = np.amin(power_trace[0:NO_DATA,trace_start:NO_POINT_PER_TRACE],axis=1).reshape((-1,1)) * -1
-        else:
-            power_leakage_points    = power_trace
-        NO_POINT_PER_TRACE = power_leakage_points[0].size 
-
-
-        # Get Statistics (Mean and Standard Deviation) of Power Traces
-        mean_power_trace = mean(power_leakage_points)
-        sdev_power_trace = sdev(power_leakage_points, mean_power_trace)
-
-
-        # Call Attack Function
-        corr_coeffs_4all_bytes  = run_cpa_attack(power_leakage_points, cipher_texts, CT_2_PREVCT_MAPPING, INVERSE_LOOKUP_TABLE, NO_DATA, NO_KEYS) 
-
-        # Extract Round 10 Key
-        corr_coeffs_4all_bytes  = np.array(corr_coeffs_4all_bytes)
-        found_r10_key_int       = []
-        found_r10_key           = ""
-
-        for byte_no in range(0,16):
-            result = np.where(corr_coeffs_4all_bytes[byte_no] == np.amax(corr_coeffs_4all_bytes[byte_no]))
-            found_r10_key_int.append(result[0][0])
-            found_r10_key = found_r10_key + int_2_hex_string(result[0][0]) 
-
-        # Reverse Key Expansion
-        found_key = reverse_key_schedule(unhex([found_r10_key])[0], 10) 
-
-        # Print Key
-
-        #print("Actual Round 10 Key      : ", actual_r10_key) 
-        #print("Recovered Round 10 Key   : ", found_r10_key) 
-        print(f"{NO_DATA} Traces:")
-        print("Actual Encryption Key    : ", actual_key_str.upper()) 
-        print("Recovered Encryption Key : ", str(hexlify(found_key), 'ascii').upper()) 
-        print("\n\n\n")
-
-
-        #key_recovery_rate   = success_rate_bit_wise(actual_r10_key_int, found_r10_key_int) 
-        #key_recovery_rate_2 = success_rate_byte_wise(actual_r10_key_int, found_r10_key_int)
-
-        #recovery_rate   += key_recovery_rate
-        #recovery_rate_2 += key_recovery_rate_2
+    # Extract Round 10 Key
+    found_r10_key_str = ""
+    found_r10_key_int = []
     
-    #success_per_no_data[cnt]   = recovery_rate / NO_TEST_KEYS
-    #success_per_no_data_2[cnt] = recovery_rate_2 / NO_TEST_KEYS
+
+    for byte_no in range(0,16):
+        result = np.where(corr_coeffs_4all_bytes[byte_no] == np.amax(corr_coeffs_4all_bytes[byte_no]))
+        top_10_per_byte[:,byte_no] = np.flip(np.argsort(corr_coeffs_4all_bytes[byte_no])[-NO_PRINT_ROW:])
+        found_r10_key_int.append(result[0][0])
+        found_r10_key_str = found_r10_key_str + int_2_hex_string(result[0][0]) 
+
+
+    all_recoverd_r10_keys.append(found_r10_key_str.upper())
+
+    # Reverse Key Expansion
+    found_key = reverse_key_schedule(unhex([found_r10_key_str])[0], 10) 
+
+
+    # Print Key
+    # print(f"{NO_DATA} Traces:")
+    # print("Actual Round 10 Key      : ", actual_r10_key) 
+    # print("Recovered Round 10 Key   : ", found_r10_key_str) 
+    # print("Actual Encryption Key    : ", actual_key_str.upper()) 
+    # print("Recovered Encryption Key : ", str(hexlify(found_key), 'ascii').upper()) 
+
+    all_top_10_bytes.append(top_10_per_byte)
+
+    key_recovery_rate = success_rate_byte_wise(actual_r10_key_int, found_r10_key_int)
+
+    success_per_no_data[cnt] = key_recovery_rate 
+
+    cnt += 1
+
+
+
+console = Console() 
+
+job_progress = Progress(
+    "{task.description}",
+    SpinnerColumn(style=text_color),
+    BarColumn(bar_width=None, complete_style="bright_white",finished_style=border_color, style="bright_black"),
+    TextColumn("[progress.percentage]{task.percentage:>3.0f}%", style=text_color)
+
+)
+job_progress.add_task("[bright_white]Running Attack", total=len(NO_DATA_ARR)) 
+
+
+progress_table = Table.grid(expand=True)
+progress_table.add_row(
+    Panel(job_progress, title="[b white]Jobs", border_style=border_color, padding=(1, 2)),
+)
+
+layout = make_layout()
+layout["header"].update(Header())  
+layout["body"].update(make_table(0))
+layout["box2"].update(make_key_recovery(0))  
+layout["box1"].update(Panel(make_authors(), border_style=border_color)) 
+layout["footer"].update(progress_table)
+
+with Live(layout, refresh_per_second=5, screen=True): 
+    for indx in range(len(NO_DATA_ARR)):
+        sleep(1.5) 
+        for job in job_progress.tasks:
+            job_progress.advance(job.id)
+        layout["body"].update(make_table(indx))
+        layout["box2"].update(make_key_recovery(indx))
+
+    while True:
+        pass
+        
+
+# with Live(generate_table(all_top_10_bytes[0], actual_r10_key_int, success_per_no_data[0], NO_DATA_ARR[0]), console=console, refresh_per_second=10) as live:
+#     for c in range(len(NO_DATA_ARR)):
+#         sleep(1)
+#         live.update(generate_table(all_top_10_bytes[c], actual_r10_key_int, success_per_no_data[c], NO_DATA_ARR[c])) 
